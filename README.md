@@ -1,4 +1,4 @@
-# Smart Recipe Promp Engineering Agent 🍳
+# Smart Recipe Prompt Engineering Agent 🍳
 
 A full-stack recipe application that lets users search for meals, get random recipes from the MealDB database, and use GPT chat completion function_tools methods to generate recipes. Built with **React**, **Vite**, **Redux Toolkit**, **FastAPI**, and **OpenAI GPT**.
 
