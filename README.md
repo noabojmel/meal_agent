@@ -2,7 +2,7 @@
 
 A full-stack recipe application that lets users search for meals, get random recipes from the MealDB database, and use GPT agent methods to generate recipes. Built with **React**, **Vite**, **Redux Toolkit**, **FastAPI**, and **OpenAI GPT**.
 
-[Watch the demo video](public/app.mp4)
+[Watch the demo video](frontend/public/app.mp4)
 
 ## Features
 
