@@ -1,6 +1,6 @@
-# Smart Recipe Agent 🍳
+# Smart Recipe Promp Engineering Agent 🍳
 
-A full-stack recipe application that lets users search for meals, get random recipes from the MealDB database, and use GPT agent methods to generate recipes. Built with **React**, **Vite**, **Redux Toolkit**, **FastAPI**, and **OpenAI GPT**.
+A full-stack recipe application that lets users search for meals, get random recipes from the MealDB database, and use GPT chat completion function_tools methods to generate recipes. Built with **React**, **Vite**, **Redux Toolkit**, **FastAPI**, and **OpenAI GPT**.
 
 [Watch the demo video](frontend/public/app.mp4)
 
@@ -10,6 +10,7 @@ A full-stack recipe application that lets users search for meals, get random rec
 - If the recipe doesn’t exist, GPT-4 generates a recipe automatically.  
 - Displays recipe instructions clearly in the UI.  
 - Keeps a history of the last 10 recipes.
+- Uses localStorage (the recipe will be saved only for every user session)
 
 ## Tech Stack
 

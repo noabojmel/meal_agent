@@ -12,7 +12,7 @@ export default function RecipeForm({ input, setInput, loading, handleSubmit }: P
     <>
       <TextField
         fullWidth
-        label="Ask me for a recipe..."
+        label="Ask me for a recipe"
         variant="outlined"
         value={input}
         onChange={(e) => setInput(e.target.value)}
