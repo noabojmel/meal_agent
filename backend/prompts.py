@@ -14,3 +14,14 @@ Rules:
 
 Always respond with function_call if a tool should be used.
 """
+
+generare_recipe_prompt = """
+Generate a recipe in JSON format with only these fields:
+- strMeal: the name of the meal
+- strInstructions: cooking instructions
+Example:
+{
+    "strMeal": "Pasta Primavera",
+    "strInstructions": "Boil pasta. Cook vegetables. Mix together.",
+}
+"""

@@ -3,7 +3,8 @@ from openai import OpenAI
 import tools
 from prompts import system_prompt
 
-client = OpenAI(api_key="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")
+# export OPENAI_API_KEY="your-api-key"
+client = OpenAI()
 
 def run_agent(user_input):
     tool = [
@@ -36,11 +37,10 @@ def run_agent(user_input):
     )
     message = response.choices[0].message
 
-    # Log what the model chose
+    # Logger for back checks
     print("=== Agent Decision ===")
     print(message.function_call)
 
-    # Execute the chosen tool
     if message.function_call:
         func_name = message.function_call.name
         args = json.loads(message.function_call.arguments)
@@ -48,6 +48,23 @@ def run_agent(user_input):
         if func_name == "get_random_meal":
             return tools.get_random_meal()
         elif func_name == "get_recipe_by_name":
-            return tools.get_recipe_by_name(args.get("name"))
+            res = tools.get_recipe_by_name(args.get("name"))
+
+            # No recipe found in meal db
+            if res is None:
+                prompt = f"Generate a recipe for '{args.get('name')}' in JSON format with strMeal, strInstructions."
+                gpt_res = client.chat.completions.create(
+                    model="gpt-4o-mini",
+                    messages=[{"role": "user", "content": prompt}],
+                )
+                content = gpt_res.choices[0].message.content
+                try:
+                    start = content.find("{")
+                    end = content.rfind("}") + 1
+                    json_str = content[start:end]
+                    return json.loads(json_str)
+                except Exception:
+                    return False
+            return res
 
     return False
